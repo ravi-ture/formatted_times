@@ -8,14 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = FormattedTimes::VERSION
   spec.authors       = ["Ravi-Ture"]
   spec.email         = ["raviture@gmail.com"]
-  spec.summary       = %q{TODO: solve issue of :
-                          2.1.2 :003 > 3.days.from_now
-                            :advance
-                            [{:days=>3}]
-                            ------------------
-                            NoMethodError: undefined method `advance' for Thu, 13 Nov 2014 07:39:03 UTC +00:00:ActiveSupport::TimeWithZone
-                          }
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Provides way for clean formatted time stamps}
+  spec.description   = %q{This gem simply overrides the method_missing of ActiveSupport::TimeWithZone module and includes the functionality for responding to various methods that will retrieve a time stamp in required format.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
