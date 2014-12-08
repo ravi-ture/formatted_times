@@ -6,7 +6,7 @@ require 'formatted_times/version'
 Gem::Specification.new do |spec|
   spec.name          = "formatted_times"
   spec.version       = FormattedTimes::VERSION
-  spec.authors       = ["Ravi-Ture"]
+  spec.authors       = ["Ravi Ture"]
   spec.email         = ["raviture@gmail.com"]
   spec.summary       = %q{Provides way for clean formatted time stamps}
   spec.description   = %q{This gem simply overrides the method_missing of ActiveSupport::TimeWithZone module and includes the functionality for responding to various methods that will retrieve a time stamp in required format.}
@@ -20,4 +20,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rails", "~> 2.1.0"
 end
