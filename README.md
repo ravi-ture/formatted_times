@@ -26,70 +26,84 @@ Or install it yourself as:
 
 	      # Date related options
 
-	      'YY' => '%Y',
-	      'CC' => '%C',
-	      'yy' => '%y',
-	      'mm' => '%m',
-	      'BB' => '%B',
-	      'bb' => '%b',
-	      'hh' => '%h',
-	      'dd' => '%d',
-	      'ee' => '%e',
-	      'jj' => '%j',
+	      'YY' => '%Y', # Year with century (can be negative, 4 digits at least)
+          				# -0001, 0000, 1995, 2009, 14292, etc.
+	      'CC' => '%C', #  year / 100 (round down.  20 in 2009)
+	      'yy' => '%y', #  year % 100 (00..99)
+	      'mm' => '%m', #  Month of the year, zero-padded (01..12)
+				        # %_m  blank-padded ( 1..12)
+				        # %-m  no-padded (1..12)
+	      'BB' => '%B', #  The full month name (``January'')
+          				# %^B  uppercased (``JANUARY'')
+	      'bb' => '%b', # The abbreviated month name (``Jan'')
+          				# %^b  uppercased (``JAN'')
+	      'hh' => '%h', # Equivalent to %b
+	      'dd' => '%d', # Day of the month, zero-padded (01..31)
+          				# %-d  no-padded (1..31)
+	      'ee' => '%e', # Day of the month, blank-padded ( 1..31)
+	      'jj' => '%j', # Day of the year (001..366)
 
 	      # Time related options
 
-	      'HH' => '%H',
-	      'kk' => '%k',
-	      'II' => '%I',
-	      'll' => '%l',
-	      'PP' => '%P',
-	      'pp' => '%p',
-	      'MM' => '%M',
-	      'SS' => '%S',
-	      'LL' => '%L',
-	      'NN' => '%N',
-	      '3N' => '%3N',
-	      '6N' => '%6N',
-	      '9N' => '%9N',
-	      '12N' => '%12N',
+	      'HH' => '%H', # Hour of the day, 24-hour clock, zero-padded (00..23)
+	      'kk' => '%k', # Hour of the day, 24-hour clock, blank-padded ( 0..23)
+	      'II' => '%I', # Hour of the day, 12-hour clock, zero-padded (01..12)
+	      'll' => '%l', # Hour of the day, 12-hour clock, blank-padded ( 1..12)
+	      'PP' => '%P', # Meridian indicator, lowercase (``am'' or ``pm'')
+	      'pp' => '%p', # Meridian indicator, uppercase (``AM'' or ``PM'')
+	      'MM' => '%M', # Minute of the hour (00..59)
+	      'SS' => '%S', # Second of the minute (00..59)
+	      'LL' => '%L', #  Millisecond of the second (000..999)
+	      'NN' => '%N', # Fractional seconds digits, default is 9 digits (nanosecond)
+	      '3N' => '%3N', # Fractional miliseconds digits, 3 digits
+	      '6N' => '%6N', # Fractional macroseconds digits, 6 digits
+	      '9N' => '%9N', # Fractional nanoseconds digits, 9 digits
+	      '12N' => '%12N', # Fractional picoseconds digits, 12 digits
 
 	      # Time zone related Options
 
-	      'zz' => '%z',
-	      '1z' => '%:z',
-	      '2z' => '%::z',
-	      '3z' => '%:::z',
-	      'ZZ' => '%Z',
+	      'zz' => '%z', # Time zone as hour and minute offset from UTC (e.g. +0900)
+	      '1z' => '%:z', # hour and minute offset from UTC with a colon (e.g. +09:00)
+	      '2z' => '%::z', # hour, minute and second offset from UTC (e.g. +09:00:00)
+	      '3z' => '%:::z', # hour, minute and second offset from UTC (e.g. +09, +09:30, +09:30:30)
+	      'ZZ' => '%Z', # Time zone abbreviation name
 
 	      # Weekday related options
 
-	      'AA' => '%A',
-	      'aa' => '%a',
-	      'uu' => '%u',
-	      'ww' => '%w',
+	      'AA' => '%A', # The full weekday name (``Sunday'')
+          				# %^A  uppercased (``SUNDAY'')
+	      'aa' => '%a', # The abbreviated name (``Sun'')
+          				# %^a  uppercased (``SUN'')
+	      'uu' => '%u', # Day of the week (Monday is 1, 1..7)
+	      'ww' => '%w', # Day of the week (Sunday is 0, 0..6)
+
+	      'GG' => '%G', # The week-based year
+	      'gg' => '%g', # The last 2 digits of the week-based year (00..99)
+	      'VV' => '%V', # Week number of the week-based year (01..53)
+	      'UU' => '%U', # Week number of the year.  The week starts with Sunday.  (00..53)
+	      'WW' => '%W', # Week number of the year.  The week starts with Monday.  (00..53)
 
 	      # Seconds related opions
 
-	      'ss' => '%s',
-	      'QQ' => '%Q',
+	      'ss' => '%s', # Number of seconds since 1970-01-01 00:00:00 UTC.
+	      'QQ' => '%Q', # Number of microseconds since 1970-01-01 00:00:00 UTC.
 
 	      # Literal string related options
 
-	      'nn' => '%n',
-	      'tt' => '%t',
+	      'nn' => '%n', # Newline character (\n)
+	      'tt' => '%t', # Tab character (\t)
 
 	      # Combination Options
 
-	      'cc' => '%c',
-	      'DD' => '%D',
-	      'FF' => '%F',
-	      'vv' => '%v',
-	      'xx' => '%x',
-	      'XX' => '%X',
-	      'rr' => '%r',
-	      'RR' => '%R',
-	      'TT' => '%T'
+	      'cc' => '%c', # date and time (%a %b %e %T %Y)
+	      'DD' => '%D', # Date (%m/%d/%y)
+	      'FF' => '%F', # The ISO 8601 date format (%Y-%m-%d)
+	      'vv' => '%v', # VMS date (%e-%b-%Y)
+	      'xx' => '%x', # Same as %D
+	      'XX' => '%X', # Same as %T
+	      'rr' => '%r', # 12-hour time (%I:%M:%S %p)
+	      'RR' => '%R', # 24-hour time (%H:%M)
+	      'TT' => '%T' # 24-hour time (%H:%M:%S)
 	    }
 
   Now if you need date, month and year out of timestamp then you can simply use :
@@ -105,6 +119,14 @@ Or install it yourself as:
     2.1.2 :020 > User.first.created_at.frmt_dd_hh_yy_HH_MM_SS
     => "27 : Sep : 14 : 08 : 44" 
 
+	# Multiple seperators
+	2.1.2 :002 >  User.first.created_at.frmt_dd_mm_yy(', ', true)
+	=> "27,09 14"
+	2.1.2 :006 >  User.first.created_at.frmt_dd_hh_yy(',-', true)
+	=> "27,Sep-14"
+
+
+Methods from formatted times accepts two arguments a string as seperator and boolean to specify weather given separator is to be used as multiple separator string or single separator string. In case of multiple separator strings the separator strings are devided into character arrays and interleaved into the strftime methods option string.
 
 ## Contributing
 

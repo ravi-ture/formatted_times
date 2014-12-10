@@ -49,6 +49,11 @@ module ActiveSupport
       'aa' => '%a',
       'uu' => '%u',
       'ww' => '%w',
+      'GG' => '%G',
+      'gg' => '%g',
+      'VV' => '%V',
+      'UU' => '%U',
+      'WW' => '%W',
 
       # Seconds related opions
 
@@ -78,8 +83,8 @@ module ActiveSupport
       method_name = sym.to_s
 
       if method_name.starts_with? 'frmt_'
-        if args.length == 1 and args[0].is_a?(String)
-          strf_time_string = get_strftime_string(method_name, args[0])
+        if args.length.in?([1, 2]) and args[0].is_a?(String)
+          strf_time_string = get_strftime_string(method_name, args[0], args[1])
         else
           strf_time_string = get_strftime_string(method_name)
         end
@@ -91,15 +96,17 @@ module ActiveSupport
       raise e, e.message.sub(time.inspect, self.inspect), e.backtrace
     end
 
-    def get_strftime_string(name, separator=' : ')
+    def get_strftime_string(name, *args)
+      separator = args[0] || ':'
+      multiple_separator=  args[1] || false
       options = name.split('_')
       options.shift
-      invalid_options = options - FORMATTING_OPTIONS.keys
 
+      invalid_options = options - FORMATTING_OPTIONS.keys
       raise ::ArgumentError, "Options #{invalid_options.join(', ')} are invalid." unless invalid_options.empty?
 
-      options.collect{ |option| FORMATTING_OPTIONS[option] }.join(separator)
-
+      strf_options = options.collect{ |option| FORMATTING_OPTIONS[option] }
+      multiple_separator ? strf_options.zip(separator.chars).flatten.compact.join : strf_options.join(separator)
     end
 
   end
