@@ -1,4 +1,6 @@
+require "formatted_times/format_time"
 require "formatted_times/active_support_ext"
+require "formatted_times/date_time_ext"
 require "formatted_times/version"
 
 
