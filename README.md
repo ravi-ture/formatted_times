@@ -20,7 +20,7 @@ Or install it yourself as:
 
   Once included in your rails application you can use any formatting method that is made out of joining the formatting arguments of strftimes by underscore.
 
-  Any method name for formatting timestamps should start with 'frmt_' and then followed by the options to get time stamp. Following is the option's hash that is used to get strftime methods argument string : 
+  Any method name for formatting timestamps should start with 'frmt_' and then followed by the options to get time stamp. Following is the option's hash that is used to get strftime methods argument string :
 
 	      {
 
@@ -106,18 +106,18 @@ Or install it yourself as:
 	      'TT' => '%T' # 24-hour time (%H:%M:%S)
 	    }
 
-  Now if you need date, month and year out of timestamp then you can simply use :
-    
+  If you need date, month and year out of timestamp then you can simply use :
+
     User.first.created_at.frmt_dd_mm_yy #=> "27 : 09 : 14"
 
-    # Getting desizered seperator 
+    # Getting desizered seperator
     User.first.created_at.frmt_dd_mm_yy '/' #=> "27/09/14"
 
-    # Some simple usage: 
+    # Some simple usage:
     2.1.2 :012 > User.first.created_at.frmt_dd_hh_yy ', '
     => "27, Sep, 14"
     2.1.2 :020 > User.first.created_at.frmt_dd_hh_yy_HH_MM_SS
-    => "27 : Sep : 14 : 08 : 44" 
+    => "27 : Sep : 14 : 08 : 44"
 
 	# Multiple seperators
 	2.1.2 :002 >  User.first.created_at.frmt_dd_mm_yy(', ', true)
@@ -128,9 +128,17 @@ Or install it yourself as:
 
 Methods from formatted times accepts two arguments a string as seperator and boolean to specify weather given separator is to be used as multiple separator string or single separator string. In case of multiple separator strings the separator strings are devided into character arrays and interleaved into the strftime methods option string.
 
+Now you can add custom formats with a hash where its key will be the name of the method to call and value will be strftime argument string. Please refer following example:
+  # Custom format definition
+  > FormattedTimes.define_formats({:short_date => '%d %h, %Y'})
+  # after execution of above statement you can use
+  > User.first.created_at.short_date
+  => "18 Nov, 2014"
+
+
 ## Contributing
 
-1. Fork it ( http://github.com/raviture91/formatted_times/fork )
+1. Fork it ( http://github.com/ravi-ture/formatted_times/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
