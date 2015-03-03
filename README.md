@@ -128,12 +128,13 @@ Or install it yourself as:
 
 Methods from formatted times accepts two arguments a string as seperator and boolean to specify weather given separator is to be used as multiple separator string or single separator string. In case of multiple separator strings the separator strings are devided into character arrays and interleaved into the strftime methods option string.
 
-Now you can add custom formats with a hash where its key will be the name of the method to call and value will be strftime argument string. Please refer following example:
-  # Custom format definition
-  > FormattedTimes.define_formats({:short_date => '%d %h, %Y'})
-  # after execution of above statement you can use
-  > User.first.created_at.short_date
-  => "18 Nov, 2014"
+Now you can add custom formats with a hash where its key will be the name of the method to call and value will be strftime argument string. Please refer following example.
+
+	#Custom format definition
+	FormattedTimes.define_formats({:short_date => '%d %h, %Y'})
+	#after execution of above statement you can use
+	User.first.created_at.short_date
+	=> "18 Nov, 2014"
 
 
 ## Contributing
