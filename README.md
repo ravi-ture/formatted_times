@@ -113,17 +113,29 @@ Or install it yourself as:
     # Getting desizered seperator
     User.first.created_at.frmt_dd_mm_yy '/' #=> "27/09/14"
 
-    # Some simple usage:
+    # Usage:
     2.1.2 :012 > User.first.created_at.frmt_dd_hh_yy ', '
     => "27, Sep, 14"
     2.1.2 :020 > User.first.created_at.frmt_dd_hh_yy_HH_MM_SS
     => "27 : Sep : 14 : 08 : 44"
 
-	# Multiple seperators
-	2.1.2 :002 >  User.first.created_at.frmt_dd_mm_yy(', ', true)
-	=> "27,09 14"
-	2.1.2 :006 >  User.first.created_at.frmt_dd_hh_yy(',-', true)
-	=> "27,Sep-14"
+    # To format Date object :
+    2.1.2 :002 > Date.today.frmt_dd_mm_yy
+    => "21/06/16"
+
+    # To format datetime object from current timestamp :
+    2.1.2 :007 > Time.now.frmt_dd_hh_yy_HH_MM_SS
+    => "21/Jun/16/13/49/16"
+
+    2.1.2 :003 > DateTime.now.frmt_dd_hh_yy_HH_MM_SS
+    => "21/Jun/16/13/50/16"
+
+
+    # Multiple seperators
+    2.1.2 :002 >  User.first.created_at.frmt_dd_mm_yy(', ', true)
+    => "27,09 14"
+    2.1.2 :006 >  User.first.created_at.frmt_dd_hh_yy(',-', true)
+    => "27,Sep-14"
 
 
 Methods from formatted times accepts two arguments a string as seperator and boolean to specify weather given separator is to be used as multiple separator string or single separator string. In case of multiple separator strings the separator strings are devided into character arrays and interleaved into the strftime methods option string.
