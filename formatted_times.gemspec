@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["raviture@gmail.com"]
   spec.summary       = %q{Provides way for clean formatted time stamps}
   spec.description   = %q{This gem simply overrides the method_missing of ActiveSupport::TimeWithZone module and includes the functionality for responding to various methods that will retrieve a time stamp in required format.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/ravi-ture/formatted_times"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
